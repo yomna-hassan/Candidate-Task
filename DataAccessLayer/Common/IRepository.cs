@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Common
 {
-     public   interface IRepository<T>
-     {
-        public Task<T> Create(T obj);
-        public void Delete(T obj);
-        public void Update(T obj);
-        public IEnumerable<T> GetAll();
-        public T GetById(int Id);
-     }
+     public   interface IRepository<TEntity> where TEntity : class
+    {
+         Task<TEntity> Add(TEntity entity);
+         Task<TEntity> Update(TEntity entity);
+    }
 }
